@@ -27,14 +27,14 @@ export default function Menu() {
         ? toast(`Hello ${user}`, {
             position: "top-right",
           })
-        : (removeCookie("token"), navigate("https://tradeeasy-frontend.onrender.com/login"));
+        : (removeCookie("token"),  window.location.href = "https://tradeeasy-frontend.onrender.com/login");
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
 
   const Logout = () => {
     removeCookie("token");
-    navigate("https://tradeeasy-frontend.onrender.com");
+    window.location.href = "https://tradeeasy-frontend.onrender.com";;
   };
 
   const handleMenuClick = (index) => {
