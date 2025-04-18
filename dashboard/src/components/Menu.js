@@ -112,7 +112,7 @@ export default function Menu() {
             <li>
               <Link
                 style={{ textDecoration: "none" }}
-                to="/logout"
+               
                 onClick={Logout}
               >
                 <p className={selectedMenu === 4 ? activeMenuClass : menuClass}>

@@ -413,7 +413,7 @@ app.post("/signup", async (req, res, next) => {
   }
 });
 
-app.post("/login", userVerification, async (req, res, next) => {
+app.post("/login",  async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
