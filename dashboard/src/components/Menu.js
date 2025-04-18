@@ -15,7 +15,7 @@ export default function Menu() {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        window.location.href = "https://your-frontend-app.onrender.com/login";
+        window.location.href = "https://tradeeasy-frontend.onrender.com/login";
       }
       const { data } = await axios.get(
         "https://tradeeasy.onrender.com/verifyUser",
@@ -29,14 +29,14 @@ export default function Menu() {
         ? toast(`Hello ${user}`, {
             position: "top-right",
           })
-        : (removeCookie("token"), navigate("/https://your-frontend-app.onrender.com/login"));
+        : (removeCookie("token"), navigate("https://tradeeasy-frontend.onrender.com/login"));
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
 
   const Logout = () => {
     removeCookie("token");
-    navigate("/https://your-frontend-app.onrender.com/login");
+    navigate("https://tradeeasy-frontend.onrender.com");
   };
 
   const handleMenuClick = (index) => {
