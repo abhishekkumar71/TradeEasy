@@ -42,7 +42,7 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate("/");
+          window.location.href = "https://tradeeasy-1.onrender.com";
         }, 1000);
       } else {
         console.log(data.message);
