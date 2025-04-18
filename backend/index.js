@@ -22,7 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+      "http://localhost:3000",
+      "https://tradeeasy-2.onrender.com",
+      "https://tradeeasy-frontend.onrender.com",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -409,7 +413,7 @@ app.post("/signup", async (req, res, next) => {
   }
 });
 
-app.post("/login",userVerification, async (req, res, next) => {
+app.post("/login", userVerification, async (req, res, next) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -436,7 +440,6 @@ app.post("/login",userVerification, async (req, res, next) => {
     console.error(error);
   }
 });
-
 
 app.get("/getData/:symbol", async (req, res) => {
   const rawSymbol = req.params.symbol.toUpperCase();
