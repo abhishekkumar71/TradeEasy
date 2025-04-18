@@ -477,7 +477,7 @@ app.get("/getData/:symbol", async (req, res) => {
 app.get("/verifyUser", userVerification, (req, res) => {
   try {
     if (!req.user || !req.user.username) {
-      res.json({ status: false, message: "User data missing!" });
+     return res.json({ status: false, message: "User data missing!" });
     }
     res.json({ status: true, user: req.user.username });
   } catch (err) {
