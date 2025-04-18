@@ -14,9 +14,7 @@ export default function Menu() {
 
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token) {
-        window.location.href = "https://tradeeasy-frontend.onrender.com/login";
-      }
+      
       const { data } = await axios.get(
         "https://tradeeasy.onrender.com/verifyUser",
        
