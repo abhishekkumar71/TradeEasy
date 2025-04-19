@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect,useRef } from "react";
 import { ToastContainer,toast } from "react-toastify";
-const greeted = useRef(false);
 const Summary = () => {
   const [username, setUsername] = useState("");
+  const greeted = useRef(false);
+
   useEffect(() => {
     axios
       .get("https://tradeeasy.onrender.com/verifyUser", {
