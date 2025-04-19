@@ -61,7 +61,6 @@ const Positions = () => {
 
                       <td className={dayClass}>{stock.day}</td>
                     </tr>
-                    <ToastContainer position="top-right" autoClose={3000} />
                   </>
                 );
               })}

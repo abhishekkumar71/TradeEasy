@@ -88,7 +88,6 @@ export default function Holdings() {
               })}
             </table>
           </div>
-          <ToastContainer position="top-right" autoClose={3000} />
           <AreaGraph data={data} />
         </>
       )}
