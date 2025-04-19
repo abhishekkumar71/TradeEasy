@@ -9,7 +9,6 @@ const Orders = () => {
       .get("https://tradeeasy.onrender.com/allOrders", { withCredentials: true })
       .then((res) => {
         if (res.data) {
-          console.log(res.data);
           setAllOrders(res.data);
         } else {
           setAllOrders([]);
