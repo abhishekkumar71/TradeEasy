@@ -430,8 +430,9 @@ app.post("/login",  async (req, res, next) => {
     }
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-      withCredentials: true,
       httpOnly: true,
+      secure: true,              // ✅ REQUIRED on HTTPS (Render)
+      sameSite: "None",          // ✅ Required for cross-origin cookies (frontend <-> backend)
     });
     res
       .status(201)
