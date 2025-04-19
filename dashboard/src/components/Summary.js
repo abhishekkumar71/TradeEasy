@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ToastContainer,toast } from "react-toastify";
-const toastShown = useRef(false);
+const greeted = useRef(false);
 const Summary = () => {
   const [username, setUsername] = useState("");
   useEffect(() => {
@@ -14,9 +14,9 @@ const Summary = () => {
         console.log(res.data);
         if (res.data.status) {
           setUsername(res.data.user);
-          if (!toastShown.current) {
-            toast(`Hi, ${res.data.user}!`, { position: "top-right" });
-            toastShown.current = true; // ✅ Prevents repeating
+          if (!localStorage.getItem("greeted")) {
+            toast(`Hello ${res.data.user}`, { position: "top-right" });
+            localStorage.setItem("greeted", "true");
           }
         }
       })
