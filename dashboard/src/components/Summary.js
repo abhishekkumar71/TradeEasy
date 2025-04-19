@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 const Summary = () => {
   const [username, setUsername] = useState("");
@@ -78,6 +79,7 @@ const Summary = () => {
             </div>
             <hr className="divider" />
           </div>
+          <ToastContainer position="top-right" />
 
         </>
       )}

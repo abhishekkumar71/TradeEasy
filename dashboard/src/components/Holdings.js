@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 // import { holdings } from "../data/data";
 import { AreaGraph } from "./AreaGraph";
-import { ToastContainer } from "react-toastify";
 
 export default function Holdings() {
   const [allHoldings, setAllHoldings] = useState([]);
