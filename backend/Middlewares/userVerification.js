@@ -17,6 +17,6 @@ module.exports.userVerification = async (req, res, next) => {
     req.user = user; // Attach user to req
     next(); // Move to next middleware or route
   } catch (err) {
-    return res.json({ status: false });
+    return res.json({ status: false,message:"Invalid user" });
   }
 };
