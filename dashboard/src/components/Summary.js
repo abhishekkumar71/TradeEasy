@@ -1,17 +1,22 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ToastContainer } from "react-toastify";
-
+const toastShown = useRef(false);
 const Summary = () => {
   const [username, setUsername] = useState("");
   useEffect(() => {
     axios
-      .get("https://tradeeasy.onrender.com/verifyUser", { withCredentials: true })
+      .get("https://tradeeasy.onrender.com/verifyUser", {
+        withCredentials: true,
+      })
       .then((res) => {
         console.log(res.data);
         if (res.data.status) {
           setUsername(res.data.user);
+          if (!toastShown.current) {
+            toast(`Hi, ${res.data.user}!`, { position: "top-right" });
+            toastShown.current = true; // ✅ Prevents repeating
+          }
         }
       })
       .catch((err) => {
@@ -22,7 +27,7 @@ const Summary = () => {
 
   return (
     <>
-      {!username? (
+      {!username ? (
         <h2>Login to view Dashboard</h2>
       ) : (
         <>
@@ -33,13 +38,13 @@ const Summary = () => {
 
           <div className="section">
             <span>
-              <p style={{color:"white"}}>Equity</p>
+              <p style={{ color: "white" }}>Equity</p>
             </span>
 
             <div className="data">
               <div className="first">
                 <h3>3.74k</h3>
-                <p style={{color:"white"}}>Margin available</p>
+                <p style={{ color: "white" }}>Margin available</p>
               </div>
               <hr />
 
@@ -56,8 +61,7 @@ const Summary = () => {
           </div>
 
           <div className="section">
-            <span>
-            </span>
+            <span></span>
 
             <div className="data">
               <div className="first">
@@ -79,8 +83,6 @@ const Summary = () => {
             </div>
             <hr className="divider" />
           </div>
-          <ToastContainer position="top-right" />
-
         </>
       )}
     </>

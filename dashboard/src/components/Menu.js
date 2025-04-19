@@ -13,6 +13,7 @@ export default function Menu() {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
+
     const verifyCookie = async () => {
       
       const { data } = await axios.get(
@@ -23,11 +24,10 @@ export default function Menu() {
       const { status, user } = data;
       console.log(user);
       setUsername(user);
-      return status
-        ? toast(`Hello ${user}`, {
-            position: "top-right",
-          })
-        : (removeCookie("token"),  window.location.href = "https://tradeeasy-frontend.onrender.com/login");
+      if (!status) {
+        removeCookie("token");
+        window.location.href = "https://tradeeasy-frontend.onrender.com/login";
+      }
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
