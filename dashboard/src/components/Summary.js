@@ -77,6 +77,8 @@ const Summary = () => {
             </div>
             <hr className="divider" />
           </div>
+          <ToastContainer position="top-right" />
+
         </>
       )}
     </>

@@ -130,7 +130,6 @@ export default function Menu() {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-right" />
     </>
   );
 }
